@@ -20,19 +20,20 @@ func main() {
 		fmt.Println("you press... ", "ctrl+c")
 	}*/
 
-	robotgo.EventHook(hook.KeyDown, []string{"ctrl", "c"}, func(e hook.Event) {
-		fmt.Println("ctrl-c")
+	for {
+		robotgo.EventHook(hook.KeyDown, []string{"ctrl", "c"}, func(e hook.Event) {
+			//fmt.Println("ctrl-c")
 
-		content,err := clipboard.ReadAll()
+			content, err := clipboard.ReadAll()
 
-		if err == nil {
+			if err == nil {
+				fmt.Println(content)
+			}
 
-			fmt.Println(content)
-		}
+			robotgo.EventEnd()
+		})
 
-		robotgo.EventEnd()
-	})
-
-	s := robotgo.EventStart()
-	<-robotgo.EventProcess(s)
+		s := robotgo.EventStart()
+		<-robotgo.EventProcess(s)
+	}
 }
