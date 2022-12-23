@@ -1,9 +1,10 @@
 module transfer-information
 
-go 1.15
+go 1.18
 
 require (
-	github.com/atotto/clipboard v0.1.2
-	github.com/go-vgo/robotgo v0.92.1
-	github.com/robotn/gohook v0.30.4
+	github.com/go-vgo/robotgo v0.100.10
+	github.com/robotn/gohook v0.40.0
 )
+
+require github.com/vcaesar/keycode v0.10.0 // indirect
